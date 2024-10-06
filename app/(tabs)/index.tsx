@@ -4,23 +4,29 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import CardDiagnose from '@/components/CardDiagnose';
+
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#FFFFFF', dark: '#FFFFFF' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
+        <ThemedView style={styles.logoContainer}>
+          <Image
+            source={require('@/assets/images/agroradar_logo.png')}
+            style={styles.reactLogo}
+            resizeMode="contain"
+          />
+        </ThemedView>
       }>
+      
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">¡Bienvenido a Agroradar!</ThemedText>
       </ThemedView>
+      <CardDiagnose></CardDiagnose>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText type="subtitle">Cultivos:</ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
           Press{' '}
@@ -31,10 +37,8 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
+        <ThemedText type="subtitle">Notificaciones:</ThemedText>
+        
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
@@ -51,20 +55,28 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  logoContainer: {
+    backgroundColor: 'white',
+    marginTop: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 2, // Espacio reducido entre logo y título
+  },
   titleContainer: {
+    marginTop: 2, // Espacio reducido entre logo y título
+    justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
   },
   stepContainer: {
+    color:'black',
+    backgroundColor:'#FFFFFF',
     gap: 8,
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+    height: '40%',
+    width: '100%', // Asegura que ocupe todo el ancho disponible
   },
 });
