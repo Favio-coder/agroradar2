@@ -1,11 +1,11 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import CardDiagnose from '@/components/CardDiagnose';
-
+import CardNotify from '@/components/CardNotify';
 
 export default function HomeScreen() {
   return (
@@ -24,31 +24,19 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">¡Bienvenido a Agroradar!</ThemedText>
       </ThemedView>
-      <CardDiagnose></CardDiagnose>
+      <CardDiagnose />
+      
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Cultivos:</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Notificaciones:</ThemedText>
+        {/* Llamar a CardNotify con diferentes tipos */}
+        <CardNotify></CardNotify>
         
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+        <ThemedText type="subtitle">Recomendaciones:</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -70,8 +58,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   stepContainer: {
-    color:'black',
-    backgroundColor:'#FFFFFF',
+    color: 'black',
+    backgroundColor: '#FFFFFF',
     gap: 8,
     marginBottom: 8,
   },
